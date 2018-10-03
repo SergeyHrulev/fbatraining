@@ -1,0 +1,16 @@
+##<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteRule ^(.*)$ public/$1 [L]
+    ##RewriteCond %{REQUEST_FILENAME} !-d
+    ##RewriteCond %{REQUEST_FILENAME} !-f
+    ##RewriteRule ^ public/index.php [L]
+##</IfModule>
+<IfModule mod_headers.c>
+        Header append Cache-Control "no-store, no-cache, must-revalidate"
+</IfModule>
+ 
+# Заголовок Expires
+<IfModule mod_expires.c>
+        ExpiresActive On ExpiresDefault "now"
+</IfModule>
